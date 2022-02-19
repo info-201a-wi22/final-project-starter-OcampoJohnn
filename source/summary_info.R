@@ -29,44 +29,44 @@ state_victims_pop <- prop_state_data %>%
   mutate(`Pop Per 100k` = (POPESTIMATE2019/100000)) %>% 
   mutate(`Victims Per 100k` = round((Victims/`Pop Per 100k`), 2))
 
+# Creates the list to store the values.
+summary_info <- list()
 
 # Value 1. Returns the percentage of Black people shot.
-black_people_proportion <- shootings %>% 
+summary_info$black_people_proportion <- shootings %>% 
   filter("B" == race) %>% 
   pull(prop)
 
 # Value 2. Returns the percentage of Hispanic people shot.
-hispanic_people_proportion <- shootings %>% 
+summary_info$hispanic_people_proportion <- shootings %>% 
   filter("H" == race) %>% 
   pull(prop)
 
 # Value 3. Returns the percentage of White people shot.
-white_people_proportion <- shootings %>% 
+summary_info$white_people_proportion <- shootings %>% 
   filter("W" == race) %>% 
   pull(prop)
 
 # Value 4. Returns the national average of victims per 100k people.
-mean_victims_prop <- round(mean(state_victims_pop$`Victims Per 100k`), 2)
+summary_info$mean_victims_prop <- round(mean(state_victims_pop$`Victims Per 100k`), 2)
 
 # Value 5. Returns the state with the highest number of victims per 100k people.
-most_victims_prop_state <- state_victims_pop %>% 
+summary_info$most_victims_prop_state <- state_victims_pop %>% 
   filter(max(`Victims Per 100k`) == `Victims Per 100k`) %>% 
   pull(STATE)
 
 # Value 6. Returns the highest number of victims per 100k people.
-most_victims_prop_num <- state_victims_pop %>% 
+summary_info$most_victims_prop_num <- state_victims_pop %>% 
   filter(max(`Victims Per 100k`) == `Victims Per 100k`) %>%  
   pull(`Victims Per 100k`)
 
 # Value 7. Returns the state with the lowest number of victims per 100k people.
-least_victims_pro_state <- state_victims_pop %>% 
+summary_info$least_victims_pro_state <- state_victims_pop %>% 
   filter(min(`Victims Per 100k`) == `Victims Per 100k`) %>%  
   pull(STATE)
 
 # Value 8. Returns the lowest number of victims per 100k people.
-least_victims_pro_num <- state_victims_pop %>% 
+summary_info$least_victims_pro_num <- state_victims_pop %>% 
   filter(min(`Victims Per 100k`) == `Victims Per 100k`) %>%  
   pull(`Victims Per 100k`)
-
-
 
