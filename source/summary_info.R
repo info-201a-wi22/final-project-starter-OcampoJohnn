@@ -70,3 +70,11 @@ summary_info$least_victims_pro_num <- state_victims_pop %>%
   filter(min(`Victims Per 100k`) == `Victims Per 100k`) %>%  
   pull(`Victims Per 100k`)
 
+summary_info$fleeing_percent <- prop_state_data %>% 
+  mutate(Victims = 1) %>% 
+  group_by(flee) %>% 
+  summarise(Victims = sum(Victims)) %>% 
+  mutate(prop = round(Victims/(sum(Victims)/100), 2)) %>% 
+  filter("Not fleeing" == flee) %>% 
+  pull(prop)
+  
