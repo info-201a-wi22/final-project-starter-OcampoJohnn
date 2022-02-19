@@ -1,7 +1,7 @@
 ---
-title: "Your Project Title"
-author: "project team members"
-date: "1/22/2022"
+title: "Police Violence Against Marginalized Groups and Why it Happens: Police Violence"
+author: "Jesse Ocampo (jsssth@uw.edu), Emm Ocampo (emmoc7@uw.edu), John Ocampo (ocampojo@uw.edu)"
+date: "2/18/2022"
 output: html_document
 ---
 
@@ -12,29 +12,100 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 knitr::opts_knit$set(root.dir = "../source")
 ```
 
-
-
 ```{r, echo = FALSE, include = FALSE}
 source("chart_one.R")
+source("chart_two.R")
+source("chart_three.R")
+source("summary_info.R")
+source("aggragate_info_table.R")
 ```
-`r chart_one`
-this is a cool map
 
+<div align = "center">
+INFO-201: Technical Foundations of Informatics - The Information School - University of Washington<br/>
+WINTER 2022<br/>
+</div>
 
+## Abstract:
+As people debate the causes for police fatalities, the number of victims has remained consistent over the last few years. This report attempts to confront the stable number of incidences of police shootings—despite changes in training and strong support for police reform. We hope to answer why police officers decide to resort to fatal force in confrontations with civilians.
 
-this one below is also cool
+<br/>
 
+## Keywords:
+Police shootings; Excessive force; Police reform
+
+<br/>
+
+## 1. Introduction:
+While everyone knows that the debate between the police and their use of excessive force against civilians has reached a boiling point in recent years, the data paints a dreadful consistency in the number of fatal shootings by police officers—despite mitigation efforts. This remains the case despite the nationwide protests sparked tragic shootings, such as the 2020 shooting of George Floyd. We would like to know what the raw data has to say about police violence against different peoples. To that end, we will analyze data from the [Washington Post’s Police Shooting Database](https://github.com/washingtonpost/data-police-shootings) to find answers to our research questions. Additionally, it should be noted that this dataset contains information from January 1st, 2015 and runs through February 17th, 2022.
+
+<br/>
+
+## 2. Design Situation:
+### Framing the topic of concern
+As experts may be aware, police violence against marginalized groups has an extensive history that runs not for years, but for centuries. As [Time Magazine](https://time.com/4779112/police-history-origins/) states, the origin of the police force in the South was for the “preservation of the slavery system.” As such, our group concentrated on a prominent and important issue; police shootings over the past seven years. With the help of the Washington Post's database we were able to learn that despite the outcry of recent high-profile shootings, the number of police shootings of civilians has not lowered. This remains true despite the recent  support for justice system reforms.
 
 ```{r, echo = FALSE}
-source("chart_two.R")
 plot(chart_two)
 ```
 
+In fact, the number of police shootings per year has slowly increased since 2016 as the graph above shows. According to the [U.S. Census Bureau](https://www.census.gov/quickfacts/fact/table/US/PST045221), Black Americans make up 13.4% of the total US population. Yet, our findings of the data found that they make up `r summary_info$black_people_proportion`% of the people shot by the police, a disproportion of nearly two times the expected frequency. For reference, White Americans make up 76.3% of the total US population, but they make up `r summary_info$white_people_proportion`% of people shot by the police. What this graph tells us is that despite the claims of increased training, funding, accountability of police officers, poorer and or more racially segregated areas are subject to harsher policing. This assumption is supported by [a recent study](https://ajph.aphapublications.org/doi/10.2105/AJPH.2018.304851) comparing police-related shootings and neighborhood economics.
 
+### Human Values
+Racism and police violence are today seen so closely related that many say they are unequivocally connected, however, our data has shown that the overall issue when it comes to police shootings is substantially more complicated than these two variables. We know this is the case because in more recent years, police violence, and especially police shootings, tend to be concentrated more along the lines of social economical status. In other words, police shootings tend to happen more to marginalized and often poorer individuals.
 
+### Stakeholders
+Everyone is a stakeholder in this issue. However, it is important to acknowledge that the people who are most deeply affected by police shootings violence are ethnic minorities and other marginalized groups. This includes Black people, Hispanics, the homeless, and even immigrants.  A vital distinction about those affected directly is the fact that these people lack the same avenues of power that their more affluent and privileged counterparts enjoy. Similarly, minority groups are also often the indirect stakeholders for the results of laws and reforms . Many members of minority groups live paycheck to paycheck and don't have the time nor means to fight against police brutality until they don't have a choice.
 
+### Benefits and Harms
+The harms of analyzing this data is clear. Bad actors my twist the data to make unsubstantiated claims by stereotyping minorities. They could say that minorities are simply more violent than white people, or that they are more likely to shoot at police officers. To that end, we decided to dig through the data and visualize how what weapons victims carry as they are killed by police officers.
 
+```{r, echo = FALSE}
+plot(chart_three)
+```
 
+By far, most victims of police shootings carry guns. However, there is also a notable number that are unarmed, or carry toy weapons and they also lose their lives. While the true value of this graph bleeds into a broader topic of gun rights, at least people using this type of data in bad faith may hesitate to use it. ~~Or risk having their own guns taken away~~ 
 
+This graph also shows a  clear benefit of analyzing this data. A large number of victims are carrying guns during the shooting, so may police officers that they acted in self defense. This is a benefit because, despite a tragedy happening, innocent people should be guilty before proven innocent. Additionally, federal and local governments can use this data more accurately reform our current police system. While some proposals for police reform focus on ideas such as increased training and the incorporation of other de-escalation tactics, the American Bar Association (ABA) is pushing for [police accountability](https://www.americanbar.org/groups/crsj/publications/human_rights_magazine_home/civil-rights-reimagining-policing/police-accountability/). The ABA points toward the Law Enforcement Officers’ Bill of Rights as only requiring the police to only investigate and discipline themselves. 
 
+<br/>
 
+## 3. Research Questions:
+1. Who are the people most affected by police shootings?
+2. What are the most common reasons police officers may cite for fatal encounters?
+3. Where do police shootings take place the most?
+
+Although extensive data is required to make accurate and critical answers to these questions, the dataset provided by the Washington Post has helped us to attempt to answer them. The answer to the first question is clear, minorities are simply more likely to be killed by police officers than White people. Sadly, Black people take up a disproportionate percentage in this problem, as stated before. The next two questions are more difficult to answer. While we have often heard that many of the people shot by police are mentally ill, we were surprised to find that isn't true.
+
+`r table`
+
+The overwhelming majority of people involved in police shootings have no history of mental illness. This effectively debunks the myth that people use police officers as a form of suicide. So what are we left with? Another commonly stated reason is that the victim was resisting arrest, but we found that `r summary_info$fleeing_percent`% of the victims were not fleeing. That leaves us with the most common answer police officers cite for fatal encounters: the victim was armed. The last question is even more perplexing. While we know that police shootings are more common in low income areas, we expected to find an outlier. We made the map below to try and find it, but unfortunately failed.
+
+`r chart_one`
+
+The states with the highest numbers of victims are also, as expected, the states with the highest populations. This map shows that there are no states with an overwhelmingly disproportionate number of police shootings. Thus, we are left to side with experts in the field for where exactly police shootings take place the most as we found it improper to make a conclusive statement of our own. (When accounting for population, `r summary_info$most_victims_prop_state` has the highest number of victims, `r summary_info$most_victims_prop_num` per one-hundred-thousand people)
+
+<br/>
+
+## 4. Dataset:
+Although much information has been collected about police violence in the United States, especially in regards to police shootings, we decided to concentrate on the `Washington Post’s Police Shooting Database.` This extensive dataset contains 17 features and 7,087 observations. We have used it to make numerous observations, such as examining victims by their name and the day in which they were shot. 
+
+The Washington Post titled this dataset as Fatal Force and they explain that the collection of data began January 1st 2015. It is vital to mention that this data was collected in an effort to visualize the amount of people who have been shot fatally by police since 2015 and continues to be update regularly. As such, we used this dataset to answer all of our research questions with sufficient accuracy.
+
+The way in which the Washington Post collects its own data about police shootings is by, “culling local news reports, law enforcement websites and social media, and by monitoring independent databases such as Killed by Police and Fatal Encounters,” they also further explain that “the Post conducted additional reporting in many cases.” In other words, this dataset comes directly from the Washington Post’s extensive analysis on fatal police shootings since the start of 2015. This makes us confident in its usability and accuracy.
+
+<br/>
+
+## 5. Expected Implications:
+It is imperative to note that the research questions that we are trying to answer in this project appear to not be overly complicated, or overly narrow, it is simply the fact that in order to have provable and credible answers would be a significant step on the road to social justice and perhaps possible future reforms. Moreover, while we acknowledge the fact that reputable organizations such as the New York Times, the Washington Post, and others have been reporting on significant police violence against minorities for numerous years, it hasn’t been until recently that concrete action to combat these injustices has been demanded by the general public. 
+
+In reality, easy to read data that could show police violence against minorities and other marginalized groups by the numbers would be a useful tool to show legislators, local governments, and other police organizations in order to improve the relationship between law enforcement and the affected groups. At the end of the day, we simply want to answer who are the people most deeply affected by police violence and the possible reasons as to why these groups specifically suffer the most. 
+
+<br/>
+
+## 6. Limitations:
+Even though credible news organizations and other trustworthy non profits make every effort to corroborate all the leads they may receive in regards to police violence, police shootings, and other fatal encounters, it is impossible for all of these leads to be 100% accurate. This is true no matter how many safety nets these organizations put in place.
+
+One possible solution to this very serious limitation would be to cross reference the data that we are analyzing from one organization against the data of another equally reputable organization. However, because of the sheer amount of data we are attempting to analyze it would be difficult if not outright impossible, at least in the allotted time, to verify that all fatal shootings listed in the data have complete and accurate information associated with each case. The information that the Washington Post provides, for example, shows fatal police shootings but also relevant information regarding these shootings such as whether or not the suspect was armed and whether or not they died the same day. While it is very likely that all of this information is accurate given the fact that all the data is continuously updated, it is also possible that some of this relevant information associated with each shooting may have changed. Furthermore, we question if the very nature of our research questions in our data have let us down the path of correlation rather than causation.
+
+## Summary Information:
+As minorities ourselves, we couldn't help but to be interested in the cold, hard, uncaring data that seems to dominate every political discussion today. Trough the use of the database made available by the Washington Post we were able to obtain meaningful answers to two of the research questions we sought to answer from the beginning of the project. Similarly, we uncovered interesting tidbits, such as Hispanics making up `r summary_info$hispanic_people_proportion`% of victims shot by the police, despite being 18.5% of the U.S. population. Similarly, we found that the state national average number of people shot per one-hundred-thousand people is `r summary_info$mean_victims_prop`. `r summary_info$least_victims_pro_state` is the state with the lowest number of people shot at `r summary_info$least_victims_pro_num` per one-hundred-thousand people.
