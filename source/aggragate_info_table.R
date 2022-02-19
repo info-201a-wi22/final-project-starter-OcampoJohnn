@@ -12,12 +12,12 @@ shooting_df <- read.csv("../data/fatal-police-shootings-data.csv", stringsAsFact
   mutate(percentage = round(percentage, 2))
 
 # Creates the table
-knitr::kable(shooting_df, 
-             "pipe", 
-             caption = "History of Poor Mental Health by Number and Percentage",
-             col.names = c("Signs of Mental Illness", 
-                           "Number of Victims",
-                           "Percentage of Victims"),
-             align = c("c",
-                       "c",
-                       "c"))
+table <- knitr::kable(shooting_df,
+                      "pipe", 
+                      caption = "History of Poor Mental Health by Number and Percentage",
+                      col.names = c("Signs of Mental Illness", 
+                                    "Number of Victims",
+                                    "Percentage of Victims"),
+                      align = c("c",                       
+                                "c",                       
+                                "c"))
